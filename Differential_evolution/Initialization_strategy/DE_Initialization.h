@@ -9,6 +9,7 @@
 
 #include <vector>
 #include <unordered_set>
+#include <stdexcept>
 #include "../Random_generator.h"
 
 template< typename Vector >

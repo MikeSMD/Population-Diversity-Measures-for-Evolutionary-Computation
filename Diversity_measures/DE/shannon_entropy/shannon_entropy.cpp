@@ -11,7 +11,7 @@ double shannon_entropy( const std::vector< Individual >& population, const std::
 	const int size = population.size();  
 	for ( std::size_t i = 0 ; i < size; ++i )
 	{
-		if ( population[ i ] != dimensions )
+		if ( population[ i ].size() != dimensions )
 			throw std::runtime_error("shannon_entropy: rozsahy neodpovídají pčotu dimenzí v populaci") ;
 	}
 
@@ -20,7 +20,7 @@ double shannon_entropy( const std::vector< Individual >& population, const std::
     for ( std::size_t i = 0; i < size; ++i) {
         for ( std::size_t j = 0; j < dimensions; ++j)
 	{
-            normalized[i][j] = (population[i][j] - bounds[j].first) / (bounds[j].second - bounds[j].first);
+           normalized[i][j] = (population[i][j] - bounds[j].first) / (bounds[j].second - bounds[j].first);
         }
     }
 
@@ -51,3 +51,5 @@ double shannon_entropy( const std::vector< Individual >& population, const std::
     }
     return entropy / ( dimensions * std::log(m));
 }
+
+template double shannon_entropy< std::vector< double >>(const std::vector< std::vector< double >>& , const std::vector < std::pair < double, double > >&, const unsigned int );

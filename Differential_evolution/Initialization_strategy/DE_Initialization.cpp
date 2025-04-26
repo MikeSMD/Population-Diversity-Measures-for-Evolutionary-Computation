@@ -6,7 +6,7 @@ template< typename Vector >
 DE_Initialization< Vector >::DE_Initialization( std::size_t dimension_count, std::size_t population_size, std::vector< std::pair < double, double > > dimension_ranges ) : dimension_count ( dimension_count ), population_size( population_size ), dimension_ranges( dimension_ranges )
 {
    	if ( dimension_count != dimension_ranges.size() ) 
-		throw std::runtime_error ( "DE_Initialization: počet dimenzí a nastavené rozsahy dimenzí se neshodují")  
+		throw std::runtime_error ( "DE_Initialization: počet dimenzí a nastavené rozsahy dimenzí se neshodují");
 }
 
 template< typename Vector >

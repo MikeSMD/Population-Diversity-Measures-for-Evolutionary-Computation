@@ -95,7 +95,7 @@ class Differential_evolution
 	 * @param[in] logger - objekt třídy DE_Diversity_logger pro logování měr diverzit (není povinný )
 	 * @throws dle použitých strategií či loggeru
 	*/
-        void run_evolution( int generation_count = 1, DE_Diversity_logger< Individual >* logger = nullptr);
+        void run_evolution(unsigned int generation_count = 1, DE_Diversity_logger< Individual >* logger = nullptr);
         
 };
 
