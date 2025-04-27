@@ -1,3 +1,9 @@
+/**
+ * @file mean_pairwise_distance.h
+ * @author Michal Schmidt
+ * @date Naposledy upraveno: 25.04.2025
+ */
+
 #ifndef DE_MPD_HEADER
 #define DE_MPD_HEADER
 
