@@ -9,7 +9,7 @@ template<typename Container, typename Individual >
 /**
  * @brief Metoda pro výpočet průměrné vzdálenosti všech párů v populaci na základě poskytnuté funkce
  *
- * @param population - Kontejner chromozomů patřících do jedné generace - musí obsahovat metody begin() a end().
+ * @param population - Kontejner jedinců patřících do jedné generace - musí obsahovat metody begin() a end().
  * 
  * @param distance_method - Metoda pro výpočet vzdálenosti mezi dvěma  jedinci
  *
