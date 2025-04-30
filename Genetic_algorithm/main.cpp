@@ -17,7 +17,6 @@
 #include "QAP/QAP.h"
 
 #include "Mutation_classes/GA_Mutation_per_chromosome.h"
-#include <fstream>
 #include <functional>
 #include <iostream>
 
@@ -183,24 +182,16 @@ void run_GA( Params< Chromosome > parameters, std::string outfile, int interval,
     for ( int i = 0; i < parameters.runs; ++i )
     {
         DiversityLogger< Chromosome >* loggers = new DiversityLogger< Chromosome >( outfile, i == 0, interval,genes);
-/* 3-SAT
 	loggers->setKendallsTau( false );
 	loggers->setUnpresentedGenes( false );
 	loggers->setJaccardDistance( false );
 	loggers->setEditDistance( false );
-	*/ //GCP
-	 loggers->setKendallsTau( false );
-	//loggers->setHammingDistance( false );
-	/* 
-	*/  // QAP
-//	loggers->setUnpresentedGenes( false );
-//	loggers->setJaccardDistance( false );
-	// loggers->setEditDistance( false );
-//	loggers->setHammingDistance( false );
-//	loggers->setShannonEnthropy( false );
-//	loggers->setSimpsonIndex( false );
-//	*/
-        GA->run(loggers, parameters.generations );
+	loggers->setHammingDistance( false );
+	
+	loggers->setShannonEnthropy( false );
+	loggers->setSimpsonIndex( false );
+        
+	GA->run(loggers, parameters.generations );
 	rd.change_seed();
 	delete loggers;
 	
@@ -226,17 +217,7 @@ void SAT_problem( )
 
 	std::string dir = "./tests/SATer/150v/";
 	run_GA< std::vector< bool >, bool >( parameter, "logs.txt", 2);
-	
-	system(("python gr.py -i logs.txt -o " + dir + " --dpi 600").c_str());
-	system(("cat logs.txt > "+dir+"/logDiversitites.txt").c_str());
-	std::ofstream soubor(dir + "/parameters.txt");
-	soubor << "SAT PROBLEM test" << std::endl;
-	soubor << "used instance SAT_v75c325_1" << std::endl;
-	soubor << "list of parameters"<< std::endl;
-	soubor << parameter << std::endl;
-
 }
-// 25 - 16,128 - 16, 106
 
 	
 void GCP_problem()
@@ -258,15 +239,6 @@ void GCP_problem()
 	Params< std::vector< int > > parameter =  Params< std::vector< int > >(100 , Tournament, 2, Uniform, 0.9, 2, mutation, 1, true, 0.1, false, os, fe, chg,nullptr, 500, 50 );
 	run_GA< std::vector< int >, int >( parameter, "logs.txt", 2, 107 );
 
-	std::string dir = "./tests/GCP/mut0.1/miles1550";
-    	system(("python gr.py -i logs.txt -o " + dir + " --dpi 600").c_str());
-    	system(("cat logs.txt > "+dir+"/logDiversitites.txt").c_str());
-	std::ofstream soubor(dir+"/parameters.txt");
-
-	soubor << "SAT PROBLEM test" << std::endl;
-	soubor << "used instance queen5_5" << std::endl;
-	soubor << "list of parameters"<< std::endl;
-	soubor << parameter << std::endl;
 }
 void QAP_problem()
 {
@@ -287,15 +259,5 @@ void QAP_problem()
        Params_OS os = Params_OS( 25.0, 1.0, 1.0, 0.001, 0.01, 0.001, 0.01 );
        Params< std::vector< int > > parameter =  Params< std::vector< int > >(100 , Tournament, 2, SCX, 0.9, 0, nullptr, 1 ,false, 0.3, false, os, fe, chg, mutation, 1000, 50 );
 	run_GA< std::vector< int >, int >( parameter, "logs.txt", 2 );
-
-	std::string dir = "./tests/QAP/mut0.3/tai30a";
-    	system(("python gr.py -i logs.txt -o " + dir + " --dpi 600").c_str());
-    	system(("cat logs.txt > "+dir+"/logDiversitites.txt").c_str());
-	std::ofstream soubor(dir+"/parameters.txt");
-
-	soubor << "SAT PROBLEM test" << std::endl;
-	soubor << "used instance queen5_5" << std::endl;
-	soubor << "list of parameters"<< std::endl;
-	soubor << parameter << std::endl;
 
 }

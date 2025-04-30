@@ -72,8 +72,7 @@ void DE_Diversity_logger < Individual >::log_Diversities( const std::vector< std
  
     auto mahalanobis_distance_caller = [&]( const Individual& prvni, const Individual& druhy )
         {
-		return 0.0;
-           // return mahalanobis_distance< Individual >( prvni, druhy, individuals );
+            return mahalanobis_distance< Individual >( prvni, druhy, individuals );
         };
 
     double MPD_euclidean = mean_pairwise_distance< std::vector< Individual >, Individual >( individuals, euclidean_distance< Individual > );

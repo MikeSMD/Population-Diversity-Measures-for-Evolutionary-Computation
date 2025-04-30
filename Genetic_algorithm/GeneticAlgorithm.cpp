@@ -145,7 +145,7 @@ bool GeneticAlgorithm< Chromosome >::run( DiversityLogger< Chromosome >* diversi
     while( 1 )
     {
 	
-        std::cout << "generation - " << generation_counter << " population - " << population.size() << std::endl;
+        std::cout << "generation - " << generation_counter << " population size - " << population.size() << std::endl;
         logger->logDiversities( population, generation_counter );
 
         if ( generations_count >= 0 )
@@ -193,6 +193,7 @@ bool GeneticAlgorithm< Chromosome >::run( DiversityLogger< Chromosome >* diversi
 
      this->fitness_evaluator->evaluate_chromosomes( population );
 
+     std::cout << "results - " << std::endl;
     for ( int i = 0; i < population.size(); ++i )
     {
         std::cout << population.at( i ).second << " - ";

@@ -65,7 +65,7 @@ void Differential_evolution < Individual >::run_evolution( unsigned int generati
     while( generation_count -- )
     {
 
-	    std::cout << "generation - " << generation_count << "size " << population.size() << std::endl;
+	    std::cout << "generation - " << generation_count << " population size " << population.size() << std::endl;
         mutants = {};
         trials = {};
 	    std::cout << "logging "<< std::endl;
@@ -73,24 +73,21 @@ void Differential_evolution < Individual >::run_evolution( unsigned int generati
 	    if ( logger != nullptr )
         	logger->log_Diversities( population, generation_counter ++ );
         
-	    std::cout << "mutants"<< std::endl;
         // mutace jedincu
         this->mutation->get_mutants( population, mutants );
-	    std::cout << "trials"<< std::endl;
         
         // krizeni jedincu
         this->crossover->get_trials( population, mutants, trials );
-	    std::cout << "evaluation"<< std::endl;
 
         // vyhodnoceni jedincu po krizeni
         this->evaluator->evaluate( trials );
-	    std::cout << "selection"<< std::endl;
 
         // selekce jedincu do nove generace
         this->selection->update_population( population, trials );
     }
 
 
+    std::cout << "results - " << std::endl;
     for ( int i = 0; i < population.size(); ++i )
     {
         std::cout << "individual " << i << " fitness " << population[ i ].second << " --- ( ";
