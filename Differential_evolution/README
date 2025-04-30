@@ -1,9 +1,10 @@
 INFORMACE
 program byl testován na operačním systému Linux Fedora 42 s překladačem g++ verze 15.0.1
 
+
 ZVISLOSTI
-Před kompilací je třeba mít nainstalovaný knihovnu Eigen, jelikož ta je používaná pro výpočet Mahalanobisovy vzdálenosti.
-Verze Eigeen, se kterou byl tento program testován je: 3.4.0
+Před kompilací je třeba mít nainstalovanou knihovnu Eigen, jelikož ta je používaná pro výpočet Mahalanobisovy vzdálenosti.
+Verze Eigen, se kterou byl tento program testován je: 3.4.0
 
 Na operačním systému Linux Fedora 42 lze nainstalovat pomocí příkazu
 "sudo dnf install eigen3-devel"
