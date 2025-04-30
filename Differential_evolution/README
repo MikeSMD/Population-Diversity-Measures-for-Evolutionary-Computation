@@ -1,2 +1,15 @@
-Kompilace programu - příkaz "make"
-spuštění programu - ./DifferentialEvolution
+INFORMACE
+program byl testován na operačním systému Linux Fedora 42 s překladačem g++ verze 15.0.1
+
+ZVISLOSTI
+Před kompilací je třeba mít nainstalovaný knihovnu Eigen, jelikož ta je používaná pro výpočet Mahalanobisovy vzdálenosti.
+Verze Eigeen, se kterou byl tento program testován je: 3.4.0
+
+Na operačním systému Linux Fedora 42 lze nainstalovat pomocí příkazu
+"sudo dnf install eigen3-devel"
+
+KOMPILACE PROGRAMU
+příkaz "make"
+
+SPUŠTĚNÍ PROGRAMU
+./DifferentialEvolution

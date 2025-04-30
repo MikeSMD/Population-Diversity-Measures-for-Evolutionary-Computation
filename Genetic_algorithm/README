@@ -1,2 +1,8 @@
-Kompilace programu - příkaz "make"
-spuštění programu - ./GeneticAlgorithm
+INFORMACE
+program byl testován na operačním systému Linux Fedora 42 s překladačem g++ verze 15.0.1
+
+KOMPILACE PROGRAMU
+příkaz "make"
+
+SPUŠTĚNÍ PROGRAMU
+./GeneticAlgorithm
